@@ -7,4 +7,8 @@ $(function(){
 		$('body').css('background-image', 'url(' + imageUrl + ')');
 	
 	});
+
+
+
+
 })

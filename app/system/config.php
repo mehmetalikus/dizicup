@@ -13,6 +13,6 @@ $config["db"] = [
 define('DIRECTORY', realpath('.'));
 define('CONTROLLER', DIRECTORY . '/app/controller/');
 define('VIEW', DIRECTORY . '/app/view/');
-define('BASE_URL', "http://" . $_SERVER["SERVER_NAME"] . "/webProjects/phpMVC/");
+define('BASE_URL', "http://" . $_SERVER["SERVER_NAME"] . "/webProjects/dizicup/");
 
 define('SITE_NAME', "dizicup");

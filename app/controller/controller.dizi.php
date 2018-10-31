@@ -3,20 +3,20 @@ $quote = getQuote($db);
 
 if(isset($_URL[1]) && !isset($_URL[2]))
 {
-    $_SERIESNAME = explode("-", $_URL[1]);
+    $_SERIESNAME = explode("-", filterSTR($_URL[1]));
     $_SERIESNAME = implode(" ", $_SERIESNAME);
     $_SERIES = new Series();
     $_SERIES->getSeriesByName($_SERIESNAME, $db);
 
     $seasonCount = Series::seriesSeasonCount($_SERIES->getSeriesName(), $db);
     $episodeCount = getEpisodeCount($_SERIES->getSeriesId(), $db);
+    
     require view("dizi-profil");
-
 }
 
 if(isset($_URL[2]) ) {
 
-    $_SERIESNAME = $_URL[1];
+    $_SERIESNAME = filterSTR($_URL[1]);
     $_SERIESNAME = explode("-", $_SERIESNAME);
     $_SERIESNAME = implode(" ", $_SERIESNAME);
     

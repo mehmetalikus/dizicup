@@ -34,5 +34,23 @@
 
 <?php require "static/footer.php" ?>
 <?php require "static/script-manager.php" ?>
+
+    <script>
+      setTimeout(function() {
+            $.ajax({
+                type: "POST",
+                url: BASE_URL + "ajax",
+                data: {type:"watch-log", episodeId:<?=$_EPISODE->getEpisodeId()?>},
+                success: function(res){
+                    var res = JSON.parse(res);
+                    if(res.status)
+                        console.log("agent working");
+                    else
+                        console.log("agent not working");
+                }
+            })
+        }, 2500);
+    </script>
+
 </body>
 </html>

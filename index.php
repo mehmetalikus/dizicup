@@ -1,4 +1,9 @@
 <?php
+
+    session_start();
+    $_SESSION["loginState"] = true;
+    $_SESSION["userId"] = 1;
+
     require "app/init.php";
 
     $_URL = get("url");
