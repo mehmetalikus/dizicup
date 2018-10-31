@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 31 Eki 2018, 07:43:16
+-- Üretim Zamanı: 31 Eki 2018, 18:36:42
 -- Sunucu sürümü: 10.1.32-MariaDB
 -- PHP Sürümü: 7.2.5
 
@@ -115,8 +115,8 @@ CREATE TABLE `series_quotes` (
 --
 
 INSERT INTO `series_quotes` (`QuoteId`, `Quote`, `QuoteFrom`) VALUES
-(1, 'I am the one thing you cannot stop, Flash!', 'The Flash Season 2 Episode 11 '),
-(2, 'I became better than you!', 'The Flash Season 2 Episode 11'),
+(1, '\"I am the one thing you cannot stop, Flash!\"', 'The Flash Season 2 Episode 11 '),
+(2, '\"I became better than you!\"', 'The Flash Season 2 Episode 11'),
 (3, '\"Bu dünyadan özgür bir adam olarak gitmek kadar büyük bir zafer yoktur.\"', 'Spartacus Season 3 Episode 2'),
 (4, '\"He is my brother.\"', 'Prison Break Season 1 Episode 1'),
 (5, '\"Say my name.\"', 'Breaking Bad Season 5 Episode 7'),
@@ -166,6 +166,48 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`UserId`, `UserName`, `UserPassword`, `UserEmail`, `UserURL`, `CreatedAt`) VALUES
 (1, 'mehmetalikus', '12345', 'mehmetali.kus@hotmail.com', 'mehmetalikus', '2018-10-29 18:51:49');
 
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `users_info`
+--
+
+CREATE TABLE `users_info` (
+  `infoId` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `userProfileImage` varchar(255) NOT NULL,
+  `userBirthDate` date NOT NULL,
+  `userSummary` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Tablo döküm verisi `users_info`
+--
+
+INSERT INTO `users_info` (`infoId`, `userId`, `userProfileImage`, `userBirthDate`, `userSummary`) VALUES
+(1, 1, 'https://i.hizliresim.com/r1W57V.jpg', '1998-11-24', 'Developer');
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `watch_log`
+--
+
+CREATE TABLE `watch_log` (
+  `logId` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `episodeId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Tablo döküm verisi `watch_log`
+--
+
+INSERT INTO `watch_log` (`logId`, `userId`, `episodeId`) VALUES
+(1, 1, 1),
+(2, 1, 5),
+(3, 1, 4);
+
 --
 -- Dökümü yapılmış tablolar için indeksler
 --
@@ -212,6 +254,19 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `UserURL` (`UserURL`);
 
 --
+-- Tablo için indeksler `users_info`
+--
+ALTER TABLE `users_info`
+  ADD PRIMARY KEY (`infoId`),
+  ADD UNIQUE KEY `userId` (`userId`);
+
+--
+-- Tablo için indeksler `watch_log`
+--
+ALTER TABLE `watch_log`
+  ADD PRIMARY KEY (`logId`);
+
+--
 -- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
 --
 
@@ -250,6 +305,18 @@ ALTER TABLE `starring`
 --
 ALTER TABLE `users`
   MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `users_info`
+--
+ALTER TABLE `users_info`
+  MODIFY `infoId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `watch_log`
+--
+ALTER TABLE `watch_log`
+  MODIFY `logId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
