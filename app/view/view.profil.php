@@ -37,7 +37,7 @@
                             <div style="padding:15px;background-color:#022336; color:white; opacity:0.8;">
                                 <img src="https://dizilab.pw/upload/series/<?= permalink(strtolower($log["SeriesName"])) ?>_thumb.png" class="" />
                                 <span><?= $log["SeriesName"] ?></span>
-                                <div class="pull-right">
+                                <div class="episodeInf">
                                     <span class="episodeSeason">Sezon <?= $log["EpisodeSeason"] ?></span>
                                     <span class="episodeChapter">Bölüm <?= $log["EpisodeChapter"] ?></span>
                                     <br>

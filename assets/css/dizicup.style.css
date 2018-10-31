@@ -112,6 +112,7 @@ body{
 .noUnderline:hover small { 
    color:white;
 }
+.episodeInf { float: right; text-align: right;}
 .view-titles {
   font-family: 'Open Sans', sans-serif;
   text-shadow: 0 1px 2px #000;
