@@ -16,8 +16,8 @@ class Quote
         ");
         if($query->execute() && $query->rowCount() > 0){
             
-            $data = $query->fetchAll(PDO::FETCH_ASSOC);
-            return [ "Quote" => $data[0]["Quote"], "QuoteFrom" => $data[0]["QuoteFrom"] ];
+            $data = $query->fetch(PDO::FETCH_ASSOC);
+            return [ "Quote" => $data["Quote"], "QuoteFrom" => $data["QuoteFrom"] ];
         }
         else
             return false;
